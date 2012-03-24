@@ -38,3 +38,5 @@ gem 'jquery-rails'
 
 gem 'mongo_mapper'
 gem 'bson_ext'
+
+gem 'thin'
