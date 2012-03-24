@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nid: MyString
+  name: MyString
+  menu: 
+
+two:
+  nid: MyString
+  name: MyString
+  menu: 

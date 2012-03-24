@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Uid:</b>
+  <%= @order.uid %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @order.description %>
+</p>
+
+<p>
+  <b>Restaurant:</b>
+  <%= @order.restaurant %>
+</p>
+
+<p>
+  <b>Voters:</b>
+  <%= @order.voters %>
+</p>
+
+<p>
+  <b>Tray:</b>
+  <%= @order.tray %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @order.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @order.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @order.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @order.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @order.zip %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @order.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @order.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
