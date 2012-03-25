@@ -33,7 +33,7 @@ class Order
     @temp.each do |voter_info|
       voter = Voter.new(:email => voter_info)
       voter.save
-      self.voters << voter
+      self.voters << voter._id
     end
   end
 end
