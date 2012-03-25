@@ -19,7 +19,7 @@ class PopulateAndMail < IronWorker::Base
       populate_restaurant
     end
 
-    #mail_all
+    mail_all
   end
 
   def mail_all
