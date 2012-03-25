@@ -8,7 +8,7 @@ html[lang="en"]
     meta[name="description" content=""]
     meta[name="author" content=""]
     = stylesheet_link_tag "bootstrap"
-    = stylesheet_link_tag "voting"
+    //= stylesheet_link_tag "voting"
     link[rel="shortcut icon" href="images/favicon.ico"]
     link[rel="apple-touch-icon" href="images/apple-touch-icon.png"]
     link[rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"]
@@ -36,14 +36,14 @@ html[lang="en"]
   body
     .container-fluid
       - for item in @items do
-        #{item.nid}.modal
+        .modal.fade{id="##{item.nid}"}
           .modal-header
             a.close data-dismiss="modal" x
             h2 = item.name
-            span3 = item.price x 
+            span3 = item.price
           .modal-body
             .thumbnail
-              img src="/assets/test_med.jpg"
+              img src="#{item.image_url}"
             p = item.description
             label Quantity
             input.span3.quant type="text" placeholder="0" name="quantity"
@@ -78,17 +78,17 @@ html[lang="en"]
             input type="text" name="phone"
             label Email
             input type="text" name="email"
-            input type="radio" name="rest" href="#141" value="141" Bostons-Aggieland
-            input type="radio" name="rest" href="#142" value="142" Cafe Eccell
-            input type="radio" name="rest" href="#144" value="144" Coco Loco-Bryan
-            input type="radio" name="rest" href="#147" value="147" La Bodega Baja Taco Bar
-            input type="radio" name="rest" href="#148" value="148" 
+            input type="radio" name="rest" value="141" Bostons-Aggieland
+            input type="radio" name="rest" value="142" Cafe Eccell
+            input type="radio" name="rest" value="144" Coco Loco-Bryan
+            input type="radio" name="rest" value="147" La Bodega Baja Taco Bar
+            input type="radio" name="rest" value="148" 
               | Pho John's Vietnamese Cusisine
-            input type="radio" name="rest" href="#171" value="171"
+            input type="radio" name="rest" value="171"
               | Chef Cao's Chinese College Sta
-            input type="radio" name="rest" href="#207" value="207"
+            input type="radio" name="rest" value="207"
               | Chili's
-            input type="radio" name="rest" href="#865" value="865" Tony Romas
+            input type="radio" name="rest" value="865" Tony Romas
           a.btn type="submit" Submit
         #content.span3
           | test
@@ -98,13 +98,13 @@ html[lang="en"]
         //#topbar
         #images.ul.thumbnails
           - for item in @items do
-            #nomar.li.span3
-              .thumbnail data-toggle="modal" href="#{item.nid}"
+            #nomar.li.span3 data-toggle="modal" href="##{item.nid}"
+              .thumbnail 
                 img src=item.image_url
                 .caption
-                  = item.name »
+                  = item.name
           #nomar.li.span3 data-toggle="modal" href="#candyApple"
-            .thumbnail href="#item"
+            .thumbnail
               img src="/assets/test_med.jpg"
               .caption
                 | Candy Apple »
