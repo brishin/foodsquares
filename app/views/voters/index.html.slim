@@ -15,7 +15,7 @@ html[lang="en"]
     link[rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"]
     script[type="text/javascript"]
       |  window.onload = function() { if(!window.jQuery) { alert('jQuery not loaded'); } else { $(document).ready(function(){ $('#modal').modal(); }); } } 
-  
+
   body
     .container-fluid
       - for item in @items do
@@ -29,9 +29,9 @@ html[lang="en"]
                     img src="/assets/test_med.jpg"
                   p = item.description
                   label Quantity
-                  input.span3 type="text" placeholder="0"
+                  input.span3.quant type="text" placeholder="0" name="quantity"
                 .modal-footer
-                  a.btn type="submit" href="#" data-dismiss="modal" Confirm
+                  a.btn type="submit" href="#" data-dismiss="modal"  Confirm
       #candyApple.modal.fade
                 .modal-header
                   a.close data-dismiss="modal" x
@@ -43,11 +43,11 @@ html[lang="en"]
                   label Quantity
                   input.span3 type="text" placeholder="0"
                 .modal-footer
-                  a.btn type="submit" href="#" data-dismiss="modal" Confirm
+                  a.btn type="submit" href="/" data-dismiss="modal" data-method="put" data-remote="true" rel="nofollow" Confirm
       #center.row-fluid
-        #topprice
-          | price
-        #topbar
+        //#topprice
+          //| price
+        //#topbar
         #images.ul.thumbnails
           - for item in @items do
             #nomar.li.span3
