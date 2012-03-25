@@ -29,7 +29,7 @@ class Order
 
   private 
   def generate_voters
-    @temp = self.voters
+    @temp = self.voters.split(',')
     self.voters = []
     @temp.each do |voter_info|
       voter = Voter.new(:email => voter_info)
