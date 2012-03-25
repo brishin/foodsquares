@@ -11,6 +11,7 @@ class PopulateAndMail < IronWorker::Base
   merge "../models/item.rb"
   merge "../models/restaurant.rb"
   merge "../models/order.rb"
+  merge "../models/voter.rb"
 
   def run
     init_mongo
@@ -24,7 +25,8 @@ class PopulateAndMail < IronWorker::Base
 
   def mail_all
     order = Order.find(@order_id)
-    order.voters.each do |voter|
+    order.voters.each do |voter_id|
+      voter = Voter.find(voter_id)
       data = Multimap.new
       data[:from] = "Foodsquares <postmaster@app3461086.mailgun.org>"
       data[:to] = voter.email
