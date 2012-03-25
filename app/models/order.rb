@@ -1,7 +1,7 @@
 class Order
   include MongoMapper::Document
 
-  before_save :generate_uid
+  before_save :generate_uid, :generate_voters
 
   key :uid, String
   key :description, String
@@ -24,5 +24,16 @@ class Order
       rand_uid = (0...length).map{ charset.to_a[rand(charset.size)] }.join
     end while Order.exists?(:uid => rand_uid)
     self.uid = rand_uid
+  end
+
+  private 
+  def generate_voters
+    @temp = self.voters
+    self.voters = []
+    @temp.each do |voter_info|
+      voter = Voter.new(:email => voter_info)
+      voter.save
+      self.voters << voter
+    end
   end
 end

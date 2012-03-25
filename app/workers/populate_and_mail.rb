@@ -6,6 +6,8 @@ class PopulateAndMail < IronWorker::Base
     :mailgun_api_key
 
   merge_gem 'mongo_mapper'
+  merge_gem 'rest-client'
+  merge_gem 'multimap'
   merge "../models/item.rb"
   merge "../models/restaurant.rb"
   merge "../models/order.rb"
@@ -17,11 +19,21 @@ class PopulateAndMail < IronWorker::Base
       populate_restaurant
     end
 
-    mail_all
+    #mail_all
   end
 
   def mail_all
-
+    order = Order.find(@order_id)
+    order.voters.each do |voter|
+      data = Multimap.new
+      data[:from] = "Foodsquares <postmaster@app3461086.mailgun.org>"
+      data[:to] = voter.email
+      data[:subject] = "Order your food!"
+      data[:text] = "Foodsquares - food ordering."
+      data[:html] = "<html>HTML version of the body</html>"
+      RestClient.post "https://api:#{mailgun_api_key}"\
+      "@api.mailgun.net/v2/app3461086.mailgun.org/messages", data
+    end
   end
 
   def populate_restaurant
