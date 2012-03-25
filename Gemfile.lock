@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 028a81746f1f8958df59dfb068d57f2932ef767d
-  specs:
-    anjlab-bootstrap-rails (2.0.2.1)
-      railties (>= 3.0)
-      sass
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -49,6 +41,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    commonjs (0.2.0)
+      therubyracer (~> 0.9.9)
     daemons (1.1.8)
     erubis (2.7.0)
     eventmachine (0.12.10)
@@ -77,6 +71,13 @@ GEM
     json (1.6.5)
     launchy (2.1.0)
       addressable (~> 2.2.6)
+    less (2.0.9)
+      commonjs (~> 0.2.0)
+      therubyracer (~> 0.9.9)
+    less-rails (2.1.5)
+      actionpack (>= 3.1)
+      less (~> 2.0.7)
+    libv8 (3.3.10.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -138,6 +139,8 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     temple (0.4.0)
+    therubyracer (0.9.9)
+      libv8 (~> 3.3.10)
     thin (1.3.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -147,6 +150,13 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.0.2)
+      actionpack (>= 3.1)
+      less-rails (~> 2.1.5)
+      railties (>= 3.1)
+    twitter_bootstrap_form_for (1.0.5)
+      actionpack (~> 3)
+      railties (~> 3)
     typhoeus (0.3.3)
       mime-types
     tzinfo (0.3.32)
@@ -159,7 +169,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  anjlab-bootstrap-rails!
   bson_ext
   coffee-rails (~> 3.2.1)
   heroku
@@ -172,5 +181,7 @@ DEPENDENCIES
   slim (~> 1.1.1)
   temple (~> 0.4.0)
   thin
+  twitter-bootstrap-rails
+  twitter_bootstrap_form_for (~> 1)
   typhoeus
   uglifier (>= 1.0.3)
