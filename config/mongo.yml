@@ -3,9 +3,11 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  host: 127.0.0.1
-  port: 27017
-  database: foodsquares_development
+  #host: 127.0.0.1
+  #port: 27017
+  #database: foodsquares_development
+  uri: <%= ENV['MONGOLAB_URI'] %>
+  database: heroku_app3461086
 
 test:
   <<: *defaults

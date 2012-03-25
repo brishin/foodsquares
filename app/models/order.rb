@@ -32,7 +32,8 @@ class Order
     @temp = self.voters.split(',')
     self.voters = []
     @temp.each do |voter_info|
-      voter = Voter.new(:email => voter_info)
+      voter = Voter.new(:email => voter_info,
+                        :order => self._id)
       voter.save
       self.voters << voter._id
     end
