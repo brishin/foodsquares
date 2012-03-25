@@ -1,13 +1,15 @@
 defaults: &defaults
-  host: 127.0.0.1
-  port: 27017
 
 development:
   <<: *defaults
+  host: 127.0.0.1
+  port: 27017
   database: foodsquares_development
 
 test:
   <<: *defaults
+  host: 127.0.0.1
+  port: 27017
   database: foodsquares_test
 
 # set these environment variables on your prod server
