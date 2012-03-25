@@ -99,7 +99,7 @@ class OrdersController < ApplicationController
   def email
     @order = Order.first(:uid => params[:uid])
     @voter = Voter.first({:email => params[:email],
-                          :order => @order._id})
+                          :order => @order._id.to_s})
     @items = @order.restaurant.menu
     if request.get?
       respond_to format.html {render action: "email"}
