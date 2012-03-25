@@ -15,9 +15,6 @@
 //= require twitter/bootstrap
 //= require_tree .
 
-// Include all twitter's javascripts
-= require bootstrap
-
 // Or peek any of them yourself
 //= require bootstrap-transition
 //= require bootstrap-alert
