@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  require 'populate_restaurant'
+  require 'populate_and_mail.rb'
 
   # GET /orders
   # GET /orders.json
@@ -16,17 +16,6 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @order = Order.find(params[:id])
-
-    worker = PopulateRestaurant.new
-    worker.restaurant_id = params[:id]
-    if ENV['MONGO_DB'].present?
-      worker.mongo_db = ENV['MONGO_DB']
-      worker.mongo_host = ENV['MONGO_HOST']
-      worker.mongo_password = ENV['MONGO_PASSWORD']
-      worker.mongo_port = ENV['MONGO_PORT']
-      worker.mongo_username = ENV['MONGO_USERNAME']
-    end
-    worker.queue
 
     respond_to do |format|
       format.html # show.html.erb
@@ -54,6 +43,19 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+
+    worker = PopulateAndMail.new
+    worker.order_id = @order._id
+    worker.restaurant_id = params[:order][:restaurant]
+    if ENV['MONGO_DB'].present?
+      worker.mongo_db = ENV['MONGO_DB']
+      worker.mongo_host = ENV['MONGO_HOST']
+      worker.mongo_password = ENV['MONGO_PASSWORD']
+      worker.mongo_port = ENV['MONGO_PORT']
+      worker.mongo_username = ENV['MONGO_USERNAME']
+      worker.mailgun_api_key = ENV['MAILGUN_API_KEY']
+    end
+    worker.queue
 
     respond_to do |format|
       if @order.save

@@ -1,18 +1,30 @@
 require 'iron_worker'
-require 'json'
-require 'rest-client'
 
-class PopulateRestaurant < IronWorker::Base
-  attr_accessor :restaurant_id, :mongo_db, :mongo_host, :mongo_password,
-    :mongo_port, :mongo_username
+class PopulateAndMail < IronWorker::Base
+  attr_accessor :order_id, :restaurant_id, :mongo_db, 
+    :mongo_host, :mongo_password, :mongo_port, :mongo_username,
+    :mailgun_api_key
 
   merge_gem 'mongo_mapper'
   merge "../models/item.rb"
   merge "../models/restaurant.rb"
+  merge "../models/order.rb"
 
   def run
     init_mongo
 
+    if !Restaurant.exists?(:nid => @restaurant_id)
+      populate_restaurant
+    end
+
+    mail_all
+  end
+
+  def mail_all
+
+  end
+
+  def populate_restaurant
     begin
       res = RestClient.get 'https://r-test.ordr.in/rd/' + @restaurant_id.to_s
       parsed = JSON.parse(res)

@@ -48,3 +48,4 @@ gem 'thin'
 
 gem 'iron_worker'
 gem 'typhoeus'
+gem 'multimap'

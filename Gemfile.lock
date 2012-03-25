@@ -89,6 +89,7 @@ GEM
       activesupport (~> 3.0)
       plucky (~> 0.4.0)
     multi_json (1.1.0)
+    multimap (1.1.2)
     netrc (0.7.1)
     plucky (0.4.4)
       mongo (~> 1.5)
@@ -165,6 +166,7 @@ DEPENDENCIES
   iron_worker
   jquery-rails
   mongo_mapper
+  multimap
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
   slim (~> 1.1.1)
