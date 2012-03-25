@@ -1,5 +1,5 @@
 Foodsquares::Application.routes.draw do
-  resources :orders
+  resources :orders, :voters
   match 'restaurant/status/:id' => 'restaurant#status'
 
   # The priority is based upon order of creation:
