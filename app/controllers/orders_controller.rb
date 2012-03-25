@@ -100,11 +100,14 @@ class OrdersController < ApplicationController
     @order = Order.first(:uid => params[:uid])
     @voter = Voter.first({:email => params[:email],
                           :order => @order._id.to_s})
-    @items = Restaurant.first(:nid => @order.restaurant).menu
-    if request.get?
-      respond_to format.html {render action: "email"}
-    elsif request.put?
-
-    end  
+    @items = []
+    Restaurant.first(:nid => @order.restaurant).menu.each do |db_item|
+      new_item = Item.first(:nid => db_item)
+      @items << new_item if new_item.image_url
+    end
+    respond_to do |format|
+      format.html
+      format.json { render json: @order }
+    end
   end
 end

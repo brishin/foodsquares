@@ -7,7 +7,6 @@ development:
   #port: 27017
   #database: foodsquares_development
   uri: <%= ENV['MONGOLAB_URI'] %>
-  database: heroku_app3461086
 
 test:
   <<: *defaults
