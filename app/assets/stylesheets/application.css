@@ -12,4 +12,4 @@
  *= require twitter/bootstrap
  *= require_tree .
 */
-*= require app_bootstrap
+*= require twitter/bootstrap

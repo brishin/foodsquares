@@ -7,43 +7,91 @@ html[lang="en"]
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     meta[name="description" content=""]
     meta[name="author" content=""]
-    = stylesheet_link_tag "app_bootstrap"
+    = stylesheet_link_tag "bootstrap"
     = stylesheet_link_tag "voting"
     link[rel="shortcut icon" href="images/favicon.ico"]
     link[rel="apple-touch-icon" href="images/apple-touch-icon.png"]
     link[rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"]
     link[rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"]
     script[type="text/javascript"]
-      |  window.onload = function() { if(!window.jQuery) { alert('jQuery not loaded'); } else { $(document).ready(function(){ $('#modal').modal(); }); } } 
+      |  window.onload = function() { if(!window.jQuery) { alert('jQuery not loaded'); } else { $(document).ready(function(){ $('#modal').modal(); }); } }
+    script
+      | $("#info").submit(function(event)) {
+          event.preventDefault();
+
+          var $form = $(this),
+            namef = $form.find('input[name="name"]').val(),
+            addressf = $form.find('input[name="address"]').val(),
+            cityf = $form.find('input[name="city"]').val(),
+            statef = $form.find('input[name="state"]').val(),
+            zipf = $form.find('input[name="zip"]').val(),
+            phonef = $form.find('input[name="phone"]').val(),
+            emailf = $form.find('input[name="email"]').val(),
+            urlf = $form.attr('action'),
+            restf = $form.find('input[name="rest"]').val();
+
+          $.post(url, {name: namef, address: addressf, city: cityf, state: statef, zip: zipf, phone: phonef, email: emailf, url: urlf})
+      |  }
 
   body
     .container-fluid
       - for item in @items do
-        #{item.name}.modal
-                .modal-header
-                  a.close data-dismiss="modal" x
-                  h2 = item.name
-                  span3 = item.price x 
-                .modal-body
-                  .thumbnail
-                    img src="/assets/test_med.jpg"
-                  p = item.description
-                  label Quantity
-                  input.span3.quant type="text" placeholder="0" name="quantity"
-                .modal-footer
-                  a.btn type="submit" href="#" data-dismiss="modal"  Confirm
+        #{item.nid}.modal
+          .modal-header
+            a.close data-dismiss="modal" x
+            h2 = item.name
+            span3 = item.price x 
+          .modal-body
+            .thumbnail
+              img src="/assets/test_med.jpg"
+            p = item.description
+            label Quantity
+            input.span3.quant type="text" placeholder="0" name="quantity"
+          .modal-footer
+            a.btn type="submit" href="#" data-dismiss="modal"  Confirm
       #candyApple.modal.fade
-                .modal-header
-                  a.close data-dismiss="modal" x
-                  h2 Candy Apple
-                .modal-body
-                  .thumbnail
-                    img src="/assets/test_med.jpg"
-                  p An apple
-                  label Quantity
-                  input.span3 type="text" placeholder="0"
-                .modal-footer
-                  a.btn type="submit" href="/" data-dismiss="modal" data-method="put" data-remote="true" rel="nofollow" Confirm
+        .modal-header
+          a.close data-dismiss="modal" x
+          h2 Candy Apple
+        .modal-body
+          .thumbnail
+            img src="/assets/test_med.jpg"
+          p An apple
+          label Quantity
+          input.span3 type="text" placeholder="0"
+        .modal-footer
+          a.btn type="submit" href="/" data-dismiss="modal" data-method="put" data-remote="true" rel="nofollow" Confirm
+      .row-fluid
+        #start.span3
+          #info.form
+            label Name
+            input type="text" name="name"
+            label Address
+            input type="text" name="address"
+            label City
+            input type="text" name="city"
+            label State
+            input type="text" name="state"
+            label Zip
+            input type="text" name="zip"
+            label Phone
+            input type="text" name="phone"
+            label Email
+            input type="text" name="email"
+            input type="radio" name="rest" href="#141" value="141" Bostons-Aggieland
+            input type="radio" name="rest" href="#142" value="142" Cafe Eccell
+            input type="radio" name="rest" href="#144" value="144" Coco Loco-Bryan
+            input type="radio" name="rest" href="#147" value="147" La Bodega Baja Taco Bar
+            input type="radio" name="rest" href="#148" value="148" 
+              | Pho John's Vietnamese Cusisine
+            input type="radio" name="rest" href="#171" value="171"
+              | Chef Cao's Chinese College Sta
+            input type="radio" name="rest" href="#207" value="207"
+              | Chili's
+            input type="radio" name="rest" href="#865" value="865" Tony Romas
+          a.btn type="submit" Submit
+        #content.span3
+          | test
       #center.row-fluid
         //#topprice
           //| price
@@ -51,7 +99,7 @@ html[lang="en"]
         #images.ul.thumbnails
           - for item in @items do
             #nomar.li.span3
-              .thumbnail data-toggle="modal" href="#{item.name}"
+              .thumbnail data-toggle="modal" href="#{item.nid}"
                 img src=item.image_url
                 .caption
                   = item.name »
