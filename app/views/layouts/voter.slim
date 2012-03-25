@@ -1,15 +1,15 @@
 doctype
 html[lang="en"]
+  
   head
     meta[charset="utf-8"]
-    title
-      | FoodSquares
+    title FoodSquares
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     meta[name="description" content=""]
     meta[name="author" content=""]
+    <%= stylesheet_link_tage "app_bootstrap" %>
     link[href="css/bootstrap.css" rel="stylesheet"]
-    style[type="text/css"]
-      |  body { padding-top: 60px; padding-bottom: 40px; } 
+    style[type="text/css"] body { padding-top: 60px; padding-bottom: 40px; } 
     link[href="css/bootstrap-responsive.css" rel="stylesheet"]
     link[rel="shortcut icon" href="images/favicon.ico"]
     link[rel="apple-touch-icon" href="images/apple-touch-icon.png"]
@@ -17,8 +17,7 @@ html[lang="en"]
     link[rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"]
     script[type="text/javascript"]
       |  window.onload = function() { if(!window.jQuery) { alert('jQuery not loaded'); } else { $(document).ready(function(){ $(".collapse").collapse(); }); } } 
-    script
-      | document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>') 
+  
   body
     .navbar.navbar-fixed-top
       .navbar-inner
@@ -46,19 +45,7 @@ html[lang="en"]
                 | username
     .container-fluid
       .row-fluid
-        .span3
-          #accordion1.accordion
-            .accordion-group
-              .accordion-heading
-                a.accordion-toggle[data-toggle="collapse" data-parent="accordion1" href="#publications"]
-                  |  Publications 
-              #publications.accordion-body.collapse
-                .accordion-inner
-                  |  {% for user in users %} {% for paper in user.papers %} 
-                  .row-fluid
-                    .span3
-                      |  tested 
-                  |  {% endfor %} {% endfor %} 
+        <% @items.each do |i|
         .span6
           .hero-unit
             h1
@@ -68,7 +55,6 @@ html[lang="en"]
             p
               a.btn.btn-primary.btn-large
                 | Learn more »
-        .span3
 
       hr
       footer
