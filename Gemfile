@@ -47,3 +47,4 @@ gem 'bson_ext'
 gem 'thin'
 
 gem 'iron_worker'
+gem 'typhoeus'

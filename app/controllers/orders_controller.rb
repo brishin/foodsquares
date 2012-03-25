@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  require 'populate_restaurant'
+
   # GET /orders
   # GET /orders.json
   def index
@@ -14,6 +16,17 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @order = Order.find(params[:id])
+
+    worker = PopulateRestaurant.new
+    worker.restaurant_id = params[:id]
+    if ENV['MONGO_DB'].present?
+      worker.mongo_db = ENV['MONGO_DB']
+      worker.mongo_host = ENV['MONGO_HOST']
+      worker.mongo_password = ENV['MONGO_PASSWORD']
+      worker.mongo_port = ENV['MONGO_PORT']
+      worker.mongo_username = ENV['MONGO_USERNAME']
+    end
+    worker.queue
 
     respond_to do |format|
       format.html # show.html.erb
