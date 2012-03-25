@@ -1,3 +1,15 @@
+#nav {
+  margin-left: 10px;
+}
+
+.brand {
+  margin-top: 4px;
+}
+
+.modal {
+  z-index: 900;
+}
+
 .thumbnails {
   margin-left: 0px;
   list-style: none;
@@ -43,3 +55,7 @@ a.thumbnail:hover {
   padding: 9px;
   text-align: center;
 }
+
+// import original bootstrap
+@import "bootstrap";
+//@import "responsive";

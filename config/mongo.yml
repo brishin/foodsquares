@@ -2,10 +2,10 @@ defaults: &defaults
   uri: <%= ENV['MONGOLAB_URI'] %>
 
 development:
-  <<: *defaults
   #host: 127.0.0.1
   #port: 27017
   #database: foodsquares_development
+  <<: *defaults
   uri: <%= ENV['MONGOLAB_URI'] %>
 
 test:

@@ -1,4 +1,3 @@
-
 class VotersController < ApplicationController
   def index
     @items = []

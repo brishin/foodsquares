@@ -96,6 +96,7 @@ class OrdersController < ApplicationController
     end
   end
 
+  
   def email
     @order = Order.first(:uid => params[:uid])
     @voter = Voter.first({:email => params[:email],
@@ -121,4 +122,5 @@ class OrdersController < ApplicationController
     worker.mongo_username = ENV['MONGO_USERNAME']
     worker.queue
   end
+
 end

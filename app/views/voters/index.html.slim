@@ -7,61 +7,42 @@ html[lang="en"]
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     meta[name="description" content=""]
     meta[name="author" content=""]
-    = stylesheet_link_tag "bootstrap"
-    //= stylesheet_link_tag "voting"
+    = stylesheet_link_tag "app_bootstrap"
+    = stylesheet_link_tag "voting"
     link[rel="shortcut icon" href="images/favicon.ico"]
     link[rel="apple-touch-icon" href="images/apple-touch-icon.png"]
     link[rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"]
     link[rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"]
     script[type="text/javascript"]
-      |  window.onload = function() { if(!window.jQuery) { alert('jQuery not loaded'); } else { $(document).ready(function(){ $('#modal').modal(); }); } }
-    script
-      | $("#info").submit(function(event)) {
-          event.preventDefault();
-
-          var $form = $(this),
-            namef = $form.find('input[name="name"]').val(),
-            addressf = $form.find('input[name="address"]').val(),
-            cityf = $form.find('input[name="city"]').val(),
-            statef = $form.find('input[name="state"]').val(),
-            zipf = $form.find('input[name="zip"]').val(),
-            phonef = $form.find('input[name="phone"]').val(),
-            emailf = $form.find('input[name="email"]').val(),
-            urlf = $form.attr('action'),
-            restf = $form.find('input[name="rest"]').val();
-
-          $.post(url, {name: namef, address: addressf, city: cityf, state: statef, zip: zipf, phone: phonef, voters: emailf, url: urlf})
-      |  }
-
+      |  window.onload = function() { if(!window.jQuery) { alert('jQuery not loaded'); } else { $(document).ready(function(){ $('#modal').modal(); }); } } 
+  
   body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        #nav.container
+          a.brand href="#" FoodSquare
+          #orderbtn.a.btn.btn-success type="submit" data-toggle="modal" href="#order" Place an Order!
     .container-fluid
       - for item in @items do
-        .modal.fade{id="##{item.nid}"}
-          .modal-header
-            a.close data-dismiss="modal" x
-            h2 = item.name
-            span3 = item.price
-          .modal-body
-            .thumbnail
-              img src="#{item.image_url}"
-            p = item.description
-            label Quantity
-            input.span3.quant type="text" placeholder="0" name="quantity"
-          .modal-footer
-            a.btn type="submit" href="#" data-dismiss="modal"  Confirm
-      #candyApple.modal.fade
+        .modal.fade id="#{item.nid}"
+                .modal-header
+                  a.close data-dismiss="modal" x
+                  h2 = item.name
+                  span3 = item.price 
+                .modal-body
+                  .thumbnail
+                    img src="#{item.image_url}"
+                  p = item.description
+                  label Quantity
+                  input.span3 type="text" placeholder="0"
+                .modal-footer
+                  a.btn type="submit" href="#" data-dismiss="modal" Confirm
+      #order.modal.fade
         .modal-header
           a.close data-dismiss="modal" x
-          h2 Candy Apple
+          h2 Place an Order
         .modal-body
-          .thumbnail
-            img src="/assets/test_med.jpg"
-          p An apple
-          label Quantity
-          input.span3 type="text" placeholder="0"
-        .modal-footer
-          a.btn type="submit" href="/" data-dismiss="modal" data-method="put" data-remote="true" rel="nofollow" Confirm
-      .row-fluid
+          .row-fluid
         #start.span3
           #info.form
             label Name
@@ -89,25 +70,16 @@ html[lang="en"]
             input type="radio" name="rest" value="207"
               | Chili's
             input type="radio" name="rest" value="865" Tony Romas
-          a.btn type="submit" Submit
-        #content.span3
-          | test
-      #center.row-fluid
-        //#topprice
-          //| price
-        //#topbar
+        .modal-footer
+          a.btn type="submit" href="/" data-dismiss="modal" data-method="put"
+      #center.row-fluid 
         #images.ul.thumbnails
           - for item in @items do
             #nomar.li.span3 data-toggle="modal" href="##{item.nid}"
-              .thumbnail 
+              .thumbnail
                 img src=item.image_url
                 .caption
-                  = item.name
-          #nomar.li.span3 data-toggle="modal" href="#candyApple"
-            .thumbnail
-              img src="/assets/test_med.jpg"
-              .caption
-                | Candy Apple »
+                  = item.name 
 
     script[src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"]
     = javascript_include_tag "bootstrap"

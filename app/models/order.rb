@@ -20,8 +20,7 @@ class Order
   def generate_uid
     length = 6
     begin
-      charset = %w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z \
-        a b c d e f g h i j k l m n o p q r s t u v w x y z }
+      charset = %w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}
       rand_uid = (0...length).map{ charset.to_a[rand(charset.size)] }.join
     end while Order.exists?(:uid => rand_uid)
     self.uid = rand_uid
@@ -29,7 +28,7 @@ class Order
 
   private 
   def generate_voters
-    @temp = self.voters.split(',')
+    @temp = self.voters
     self.voters = []
     @temp.each do |voter_info|
       voter = Voter.new(:email => voter_info,

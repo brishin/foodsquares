@@ -11,7 +11,6 @@ class PopulateAndMail < IronWorker::Base
   merge "../models/item.rb"
   merge "../models/restaurant.rb"
   merge "../models/order.rb"
-  merge "../models/voter.rb"
 
   def run
     init_mongo

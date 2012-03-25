@@ -20,6 +20,8 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :git => 'git://github.com/anjlab/bootstrap-rails.git'
 end
 
 gem 'jquery-rails'
@@ -47,8 +49,4 @@ gem 'thin'
 gem 'iron_worker'
 gem 'typhoeus'
 gem 'multimap'
-
-gem 'twitter-bootstrap-rails'
-gem 'twitter_bootstrap_form_for', '~> 1'
-
 gem 'tumblr-api'
