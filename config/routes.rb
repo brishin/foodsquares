@@ -2,6 +2,7 @@ Foodsquares::Application.routes.draw do
   resources :orders, :voters
   match 'restaurant/status/:id' => 'restaurant#status'
   match 'orders/:uid/:email' => 'orders#email'
+  match 'tumblr/' => 'voters#tumblr'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

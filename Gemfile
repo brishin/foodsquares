@@ -50,3 +50,5 @@ gem 'multimap'
 
 gem 'twitter-bootstrap-rails'
 gem 'twitter_bootstrap_form_for', '~> 1'
+
+gem 'tumblr-api'

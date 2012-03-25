@@ -54,6 +54,9 @@ GEM
       rest-client (~> 1.6.1)
       rubyzip
     hike (1.2.1)
+    httparty (0.8.1)
+      multi_json
+      multi_xml
     i18n (0.6.0)
     iron_worker (2.3.13)
       bundler
@@ -90,6 +93,7 @@ GEM
       activesupport (~> 3.0)
       plucky (~> 0.4.0)
     multi_json (1.1.0)
+    multi_xml (0.4.2)
     multimap (1.1.2)
     netrc (0.7.1)
     plucky (0.4.4)
@@ -150,6 +154,9 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    tumblr-api (0.1.4)
+      activesupport
+      httparty
     twitter-bootstrap-rails (2.0.2)
       actionpack (>= 3.1)
       less-rails (~> 2.1.5)
@@ -181,6 +188,7 @@ DEPENDENCIES
   slim (~> 1.1.1)
   temple (~> 0.4.0)
   thin
+  tumblr-api
   twitter-bootstrap-rails
   twitter_bootstrap_form_for (~> 1)
   typhoeus
