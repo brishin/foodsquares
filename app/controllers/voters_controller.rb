@@ -2,9 +2,8 @@
 class VotersController < ApplicationController
   def index
     @items = []
-    Restaurant.first(:nid => '141').menu.each do |db_item|
-      new_item = Item.first(:nid => db_item)
-      @items << new_item if new_item.image_url
+    Item.all.each do |item|
+      @items << item if item.image_url
     end
     respond_to do |format|
       format.html

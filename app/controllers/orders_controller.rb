@@ -110,4 +110,18 @@ class OrdersController < ApplicationController
       format.json { render json: @order }
     end
   end
+
+  def scrape
+    worker = PopulateRestaurant.new
+    worker.restaurant_id = params[:id]
+    if ENV['MONGO_DB'].present?
+      worker.mongo_db = ENV['MONGO_DB']
+      worker.mongo_host = ENV['MONGO_HOST']
+      worker.mongo_password = ENV['MONGO_PASSWORD']
+      worker.mongo_port = ENV['MONGO_PORT']
+      worker.mongo_username = ENV['MONGO_USERNAME']
+      worker.mailgun_api_key = ENV['MAILGUN_API_KEY']
+    end
+    worker.queue
+  end
 end
