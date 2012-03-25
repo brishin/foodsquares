@@ -10,21 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require underscore
 //= require_tree .
-
-// Or peek any of them yourself
-//= require bootstrap-transition
-//= require bootstrap-alert
-//= require bootstrap-modal
-//= require bootstrap-dropdown
-//= require bootstrap-scrollspy
-//= require bootstrap-tab
-//= require bootstrap-tooltip
-//= require bootstrap-popover
-//= require bootstrap-button
-//= require bootstrap-collapse
-//= require bootstrap-carousel
-//= require bootstrap-typeahead
