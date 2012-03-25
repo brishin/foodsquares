@@ -12,11 +12,16 @@ gem 'rails', '3.2.1'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'slim', '~> 1.1.1'
+  gem 'temple', '~>0.4.0'
+
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :git => 'git://github.com/anjlab/bootstrap-rails.git'
 end
 
 gem 'jquery-rails'
@@ -35,7 +40,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
+gem 'heroku'
 gem 'mongo_mapper'
 gem 'bson_ext'
 

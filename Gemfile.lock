@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 028a81746f1f8958df59dfb068d57f2932ef767d
+  specs:
+    anjlab-bootstrap-rails (2.0.2.1)
+      railties (>= 3.0)
+      sass
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,6 +36,7 @@ GEM
     activesupport (3.2.1)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    addressable (2.2.7)
     arel (3.0.2)
     bson (1.5.2)
     bson_ext (1.5.2)
@@ -45,6 +54,11 @@ GEM
     eventmachine (0.12.10)
     execjs (1.3.0)
       multi_json (~> 1.0)
+    heroku (2.22.0)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.1)
+      rest-client (~> 1.6.1)
+      rubyzip
     hike (1.2.1)
     i18n (0.6.0)
     iron_worker (2.3.13)
@@ -61,6 +75,8 @@ GEM
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
     json (1.6.5)
+    launchy (2.1.0)
+      addressable (~> 2.2.6)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -73,6 +89,7 @@ GEM
       activesupport (~> 3.0)
       plucky (~> 0.4.0)
     multi_json (1.1.0)
+    netrc (0.7.1)
     plucky (0.4.4)
       mongo (~> 1.5)
     polyglot (0.3.3)
@@ -106,15 +123,20 @@ GEM
       rest-client
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rubyzip (0.9.6.1)
     sass (3.1.15)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    slim (1.1.1)
+      temple (~> 0.4.0)
+      tilt (~> 1.3.2)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    temple (0.4.0)
     thin (1.3.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -134,12 +156,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anjlab-bootstrap-rails!
   bson_ext
   coffee-rails (~> 3.2.1)
+  heroku
   iron_worker
   jquery-rails
   mongo_mapper
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
+  slim (~> 1.1.1)
+  temple (~> 0.4.0)
   thin
   uglifier (>= 1.0.3)

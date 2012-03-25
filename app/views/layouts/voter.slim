@@ -1,0 +1,78 @@
+doctype
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    title
+      | FoodSquares
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[name="description" content=""]
+    meta[name="author" content=""]
+    link[href="css/bootstrap.css" rel="stylesheet"]
+    style[type="text/css"]
+      |  body { padding-top: 60px; padding-bottom: 40px; } 
+    link[href="css/bootstrap-responsive.css" rel="stylesheet"]
+    link[rel="shortcut icon" href="images/favicon.ico"]
+    link[rel="apple-touch-icon" href="images/apple-touch-icon.png"]
+    link[rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"]
+    link[rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"]
+    script[type="text/javascript"]
+      |  window.onload = function() { if(!window.jQuery) { alert('jQuery not loaded'); } else { $(document).ready(function(){ $(".collapse").collapse(); }); } } 
+    script
+      | document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>') 
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          a.btn.btn-navbar[data-toggle="collapse" data-target=".nav-collapse"]
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand[href="#"]
+            | Project name
+          .nav-collapse
+            ul.nav
+              li.active
+                a[href="#"]
+                  | Home
+              li
+                a[href="#about"]
+                  | About
+              li
+                a[href="#contact"]
+                  | Contact
+            p.navbar-text.pull-right
+              | Logged in as 
+              a[href="#"]
+                | username
+    .container-fluid
+      .row-fluid
+        .span3
+          #accordion1.accordion
+            .accordion-group
+              .accordion-heading
+                a.accordion-toggle[data-toggle="collapse" data-parent="accordion1" href="#publications"]
+                  |  Publications 
+              #publications.accordion-body.collapse
+                .accordion-inner
+                  |  {% for user in users %} {% for paper in user.papers %} 
+                  .row-fluid
+                    .span3
+                      |  tested 
+                  |  {% endfor %} {% endfor %} 
+        .span6
+          .hero-unit
+            h1
+              | Hello, world!
+            p
+              | This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+            p
+              a.btn.btn-primary.btn-large
+                | Learn more »
+        .span3
+
+      hr
+      footer
+        p
+          | © FoodSquares 2012
+    script[src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"]
+    script[src="js/bootstrap.js"]
