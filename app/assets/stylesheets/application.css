@@ -11,5 +11,6 @@
  *= require_self
  *= require_tree .
 */
+*= require twitter/bootstrap
 *= require app_bootstrap
 *= require responsive
