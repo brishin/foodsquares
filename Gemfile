@@ -20,8 +20,7 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :git => 'git://github.com/anjlab/bootstrap-rails.git'
+  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 end
 
 gem 'jquery-rails'
