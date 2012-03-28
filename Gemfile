@@ -19,7 +19,6 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 end
 
 gem 'jquery-rails'
@@ -50,3 +49,4 @@ gem 'multimap'
 gem 'tumblr-api'
 
 gem 'slim', '~> 1.1.1'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
