@@ -1,0 +1,61 @@
+form#new_order.new_order[accept-charset="UTF-8" action="/orders" method="post"]
+  div[style="margin:0;padding:0;display:inline"]
+    input[name="utf8" type="hidden" value="✓"]
+    input[name="authenticity_token" type="hidden" value="qLYUg2pgsqq1IVkCKxx9HP/44bFv32LsJqg3iOGPVR4="]
+  .field
+    label[for="order_description"]
+      | Description
+    br
+    input#order_description[name="order[description]" size="30" type="text"]
+  .field
+    label[for="order_restaurant"]
+      | Restaurant
+    br
+    input#order_restaurant[name="order[restaurant]" size="30" type="text"]
+  .field
+    label[for="order_voters"]
+      | Voters
+    br
+    input#order_voters[name="order[voters]" size="30" type="text"]
+  .field
+    label[for="order_tray"]
+      | Tray
+    br
+    input#order_tray[name="order[tray]" size="30" type="text"]
+  .field
+    label[for="order_name"]
+      | Name
+    br
+    input#order_name[name="order[name]" size="30" type="text"]
+  .field
+    label[for="order_address"]
+      | Address
+    br
+    input#order_address[name="order[address]" size="30" type="text"]
+  .field
+    label[for="order_city"]
+      | City
+    br
+    input#order_city[name="order[city]" size="30" type="text"]
+  .field
+    label[for="order_state"]
+      | State
+    br
+    input#order_state[name="order[state]" size="30" type="text"]
+  .field
+    label[for="order_zip"]
+      | Zip
+    br
+    input#order_zip[name="order[zip]" size="30" type="text"]
+  .field
+    label[for="order_phone"]
+      | Phone
+    br
+    input#order_phone[name="order[phone]" size="30" type="text"]
+  .field
+    label[for="order_email"]
+      | Email
+    br
+    input#order_email[name="order[email]" size="30" type="text"]
+  .actions
+    input[name="commit" type="submit" value="Create Order"]

@@ -5,6 +5,8 @@ Foodsquares::Application.routes.draw do
   match 'tumblr/' => 'voters#tumblr'
   match 'scrape/:id' => 'orders#scrape'
 
+  root :to => 'orders#create'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

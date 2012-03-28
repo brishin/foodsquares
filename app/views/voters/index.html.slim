@@ -28,7 +28,7 @@ html[lang="en"]
                 .modal-header
                   a.close data-dismiss="modal" x
                   h2 = item.name
-                  span3 = item.price 
+                  span3 = item.price
                 .modal-body
                   .thumbnail
                     img src="#{item.image_url}"
@@ -41,37 +41,17 @@ html[lang="en"]
         .modal-header
           a.close data-dismiss="modal" x
           h2 Place an Order
-        .modal-body
-          .row-fluid
-        #start.span3
-          #info.form
-            label Name
-            input type="text" name="name"
-            label Address
-            input type="text" name="address"
-            label City
-            input type="text" name="city"
-            label State
-            input type="text" name="state"
-            label Zip
-            input type="text" name="zip"
-            label Phone
-            input type="text" name="phone"
-            label Email
-            input type="text" name="email"
-            input type="radio" name="rest" value="141" Bostons-Aggieland
-            input type="radio" name="rest" value="142" Cafe Eccell
-            input type="radio" name="rest" value="144" Coco Loco-Bryan
-            input type="radio" name="rest" value="147" La Bodega Baja Taco Bar
-            input type="radio" name="rest" value="148" 
-              | Pho John's Vietnamese Cusisine
-            input type="radio" name="rest" value="171"
-              | Chef Cao's Chinese College Sta
-            input type="radio" name="rest" value="207"
-              | Chili's
-            input type="radio" name="rest" value="865" Tony Romas
+        .modal-form
+          #info.form action="/orders" method="post"
+            input type="text" name="name" placeholder="Name"
+            input type="text" name="address" placeholder="Address"
+            input type="text" name="city" placeholder="City"
+            input type="text" name="state" placeholder="State"
+            input type="text" name="zip" placeholder="Zip"
+            input type="text" name="phone" placeholder="Phone"
+            input type="text" name="email" placeholder="Email"
         .modal-footer
-          a.btn type="submit" href="/" data-dismiss="modal" data-method="put"
+          a.btn type="submit" data-dismiss="modal"
       #center.row-fluid 
         #images.ul.thumbnails
           - for item in @items do
